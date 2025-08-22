@@ -1,4 +1,4 @@
-echo "verificando a consistência do código..."
+echo "Executando validações de formatação, lint e TypeScript antes do commit..."
 pnpm format
 pnpm lint
 pnpm tsc --noEmit
