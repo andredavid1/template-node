@@ -1,0 +1,4 @@
+echo "verificando a consistência do código..."
+pnpm format
+pnpm lint
+pnpm tsc --noEmit
