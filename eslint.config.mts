@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import { defineConfig } from "eslint/config";
+import prettier from "eslint-plugin-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
@@ -12,19 +13,26 @@ export default defineConfig([
       js,
       "simple-import-sort": simpleImportSort,
       "unused-imports": unusedImports,
+      prettier,
     },
-    extends: ["js/recommended"],
+    extends: [
+      "js/recommended",
+      // Remova "plugin:prettier/recommended"
+    ],
     languageOptions: { globals: globals.node },
     rules: {
-      // Ordena imports por tipo e alfabeticamente
+      "prettier/prettier": "error", // Ativa o Prettier como regra do ESLint
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
-      // Remove imports não utilizados
       "unused-imports/no-unused-imports": "error",
-      // Remove variáveis não utilizadas (opcional)
       "unused-imports/no-unused-vars": [
         "warn",
-        { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" }
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
       ],
     },
   },
