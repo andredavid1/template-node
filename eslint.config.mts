@@ -35,6 +35,11 @@ export default defineConfig([
         },
       ],
     },
+    settings: {
+      "import/resolver": {
+        typescript: {},
+      },
+    },
   },
   tseslint.configs.recommended,
 ]);

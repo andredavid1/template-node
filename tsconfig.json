@@ -3,11 +3,20 @@
     "target": "ES2022",
     "module": "CommonJS",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "src": ["src/index.ts"],
+      "@domain/*": ["src/domain/*"],
+      "@application/*": ["src/application/*"],
+      "@presentation/*": ["src/presentation/*"],
+      "@infra/*": ["src/infra/*"],
+      "@main/*": ["src/main/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "__tests__"],
   "exclude": ["node_modules", "dist"]
 }
